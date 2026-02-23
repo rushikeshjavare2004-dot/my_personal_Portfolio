@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,15 +10,16 @@
 }
 
 body {
-    background: #f4f4f4;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     padding: 15px 50px;
-    background: #333;
-    color: white;
+    background: rgba(0,0,0,0.6);
+    align-items: center;
 }
 
 nav ul {
@@ -31,30 +36,63 @@ nav ul li a {
     text-decoration: none;
 }
 
+.menu-toggle {
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
 .section {
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.6s ease;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.light-bg {
+    background: rgba(255,255,255,0.1);
 }
 
 .card-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .card {
     background: white;
+    color: black;
     padding: 20px;
-    margin: 10px;
-    width: 200px;
-    border-radius: 10px;
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
+    margin: 15px;
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
 }
 
 .card:hover {
-    transform: scale(1.1);
+    transform: translateY(-10px);
+}
+
+button {
+    padding: 8px 15px;
+    margin: 5px;
+    background: #667eea;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #764ba2;
 }
 
 form {
@@ -68,22 +106,228 @@ form input, form textarea {
     margin: 10px 0;
 }
 
-form button {
-    padding: 10px 20px;
-    background: #333;
-    color: white;
-    border: none;
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background: white;
+    color: black;
+    padding: 30px;
+    width: 50%;
+    margin: 10% auto;
+    border-radius: 10px;
+}
+
+.close {
+    float: right;
+    font-size: 25px;
     cursor: pointer;
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-    nav {
+
+    nav ul {
         flex-direction: column;
-        text-align: center;
+        display: none;
+        width: 100%;
+        background: rgba(0,0,0,0.8);
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 
     .card-container {
         flex-direction: column;
         align-items: center;
     }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: #764ba2;
+}
+
+.linkedin-btn {
+    background: #0077b5;
+}
+
+.linkedin-btn:hover {
+    background: #005f8d;
+}
+
+.resume-btn {
+    background: #28a745;
+}
+
+.resume-btn:hover {
+    background: #1e7e34;
+}
+.about {
+    padding: 100px 10%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    text-align: center;
+    color: white;
+}
+
+.about-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.about h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.about-text {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+.contact {
+    padding: 100px 10%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.subtitle {
+    color: #eee;
+    margin-bottom: 60px;
+}
+
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* FORM BOX */
+.form-box {
+    flex: 1;
+    min-width: 350px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* IMPORTANT FIX */
+.form-box input,
+.form-box textarea {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 14px;
+}
+
+.form-box textarea {
+    height: 120px;
+    resize: none;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    background: #ffffff;
+    color: #764ba2;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-box button:hover {
+    background: #eee;
+}
+
+/* INFO BOX */
+.info-box {
+    flex: 1;
+    min-width: 350px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    text-align: left;
+    color: white;
+}
+
+.info-box h3 {
+    margin-bottom: 30px;
+}
+
+.info-item {
+    margin-bottom: 25px;
+}
+
+.info-box a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.info-box a:hover {
+    text-decoration: underline;
+}
+/* Project Card Improve */
+#projects .card {
+    padding: 25px;
+    text-align: center;
+}
+
+#projects .card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+#projects .card p {
+    color: #ccc;
+    line-height: 1.5;
+}
+
+#projects button {
+    margin: 5px;
 }

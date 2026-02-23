@@ -2,63 +2,152 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Rushikesh Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <h2 class="logo">MyPortfolio</h2>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<!-- Navbar -->
+<nav>
+    <h2 class="logo">Rushikesh</h2>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <!-- Home Section -->
-    <section id="home" class="section">
-        <h1>Hello, I'm Rushikesh</h1>
-        <p>Web Developer | Java Developer | Student</p>
-        <button onclick="showMessage()">Click Me</button>
-    </section>
+   
+<section id="home" class="section">
+    <h1>Hello, I'm <span id="typing"></span></h1>
+    <p>Computer Science Engineering Student</p>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <h2>My Skills</h2>
-        <div class="card-container">
-            <div class="card">HTML</div>
-            <div class="card">CSS</div>
-            <div class="card">JavaScript</div>
-            <div class="card">Java</div>
+    <!-- Hire Me Gmail -->
+    <a class="btn" 
+     href="https://mail.google.com/mail/?view=cm&fs=1&to=rushikeshjavar2004@gmail.com">
+       Hire Me
+    </a>
+
+    <!-- LinkedIn -->
+    <a class="btn linkedin-btn" 
+       href="https://www.linkedin.com/in/rushikesh-javare-511185348" 
+       target="_blank">
+       LinkedIn
+    </a>
+
+    <!-- Download Resume -->
+    <a class="btn resume-btn" 
+       href="Rushikesh_Resume.pdf" 
+       download>
+       Download Resume
+    </a>
+</section>
+
+<section id="about" class="about">
+    <div class="about-container">
+        <h2>About Me</h2>
+
+        <p class="about-text">
+            Hello! I'm <b>Rushikesh Javare</b>, a Computer Science Engineering student passionate about Web Development and Software Development. I enjoy building responsive and user-friendly websites using HTML, CSS, and JavaScript, and I also have knowledge of Java and MySQL. My goal is to become a skilled Full Stack Developer and work on real-world innovative projects.
+        </p>
+
+    </div>
+</section>
+<!-- Skills -->
+<section id="skills" class="section light-bg">
+    <h2>My Skills</h2>
+    <div class="card-container">
+        <div class="card">HTML</div>
+        <div class="card">CSS</div>
+        <div class="card">JavaScript</div>
+        <div class="card">Java</div>
+        <div class="card">SQL</div>
+    </div>
+</section>
+
+<!-- Projects -->
+<!-- Projects -->
+<section id="projects" class="section">
+    <h2>My Project</h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>SecureLife Insurance Website</h3>
+            <p style="margin-top:10px; font-size:14px;">
+                A responsive insurance website built using HTML and CSS.
+                It provides health, life, and vehicle insurance services
+                with clean UI design and structured layout.
+            </p>
+
+            <br>
+
+            <a href="securelife.html" target="_blank">
+                <button>Live Demo</button>
+            </a>
+
+            <a href="https://github.com/rushikeshjavare2004-dot/rushikesh-javare-.git" target="_blank">
+                <button>GitHub</button>
+            </a>
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <h2>My Projects</h2>
-        <div class="card-container">
-            <div class="card">Portfolio Website</div>
-            <div class="card">Student Management System</div>
-            <div class="card">Insurance Website</div>
+    </div>
+</section>
+        <!-- Contact Info -->
+       <section id="contact" class="contact">
+    <h2>Get In Touch</h2>
+    <p class="subtitle">Have a project in mind? Let's talk!</p>
+
+    <div class="contact-wrapper">
+
+        <!-- Left Form -->
+        <div class="form-box">
+            <input type="text" placeholder="Your Full Name">
+            <input type="email" placeholder="Your Email Address">
+            <textarea placeholder="Your Message (Min 10 characters)"></textarea>
+            <button>Send Message</button>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <h2>Contact Me</h2>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Your Name">
-            <input type="email" id="email" placeholder="Your Email">
-            <textarea id="message" placeholder="Your Message"></textarea>
-            <button type="submit">Send</button>
-        </form>
-        <p id="formMessage"></p>
-    </section>
+        <!-- Right Info -->
+        <div class="info-box">
+            <h3>Contact Information</h3>
 
-    <script src="script.js"></script>
+            <div class="info-item">
+                📧 <span>Email</span><br>
+                <a href="mailto:rushikeshjavar2004@gmail.com">
+                    rushikeshjavar2004@gmail.com
+                </a>
+            </div>
+
+            <div class="info-item">
+                📱 <span>Phone</span><br>
+                <a href="tel:+917499656778">
+                    +91 7499656778
+                </a>
+            </div>
+
+            <div class="info-item">
+                📍 <span>Location</span><br>
+                Shegaon, Maharashtra
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Modal -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Portfolio Website</h2>
+        <p>This project is built using HTML, CSS, and JavaScript with responsive design and animations.</p>
+    </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
